@@ -1,0 +1,7 @@
+table_name: lnk_order_product
+table_type: link
+kafka_topic: order_service.public.order_items
+source_system: order_service
+hub_keys:
+  hub_order_bk: order_external_id
+  hub_product_bk: product_sku

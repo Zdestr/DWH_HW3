@@ -1,0 +1,96 @@
+source_system: order_service
+
+entities:
+  - name: orders
+    hub:
+      name: hub_order
+      business_key:
+        field: order_external_id
+        type: VARCHAR(36)
+    satellites:
+      - name: sat_order_details
+        fields:
+          - name: user_external_id
+            type: VARCHAR(36)
+          - name: order_number
+            type: VARCHAR(100)
+          - name: order_date
+            type: DATE
+          - name: status
+            type: VARCHAR(50)
+          - name: subtotal
+            type: DECIMAL(18,2)
+          - name: tax_amount
+            type: DECIMAL(18,2)
+          - name: shipping_cost
+            type: DECIMAL(18,2)
+          - name: discount_amount
+            type: DECIMAL(18,2)
+          - name: currency
+            type: VARCHAR(10)
+          - name: delivery_type
+            type: VARCHAR(50)
+          - name: expected_delivery_date
+            type: DATE
+          - name: actual_delivery_date
+            type: DATE
+          - name: payment_method
+            type: VARCHAR(50)
+          - name: payment_status
+            type: VARCHAR(50)
+
+  - name: products
+    hub:
+      name: hub_product
+      business_key:
+        field: product_sku
+        type: VARCHAR(100)
+    satellites:
+      - name: sat_product_details
+        fields:
+          - name: product_name
+            type: VARCHAR(255)
+          - name: category
+            type: VARCHAR(100)
+          - name: brand
+            type: VARCHAR(100)
+          - name: price
+            type: DECIMAL(18,2)
+          - name: currency
+            type: VARCHAR(10)
+          - name: weight_grams
+            type: INT
+          - name: dimensions_length_cm
+            type: DECIMAL(10,2)
+          - name: dimensions_width_cm
+            type: DECIMAL(10,2)
+          - name: dimensions_height_cm
+            type: DECIMAL(10,2)
+          - name: is_active
+            type: BOOLEAN
+
+links:
+  - name: lnk_order_user
+    hubs:
+      - hub_order
+      - hub_user
+
+  - name: lnk_order_product
+    hubs:
+      - hub_order
+      - hub_product
+    satellites:
+      - name: sat_order_item_details
+        fields:
+          - name: quantity
+            type: INT
+          - name: unit_price
+            type: DECIMAL(18,2)
+          - name: total_price
+            type: DECIMAL(18,2)
+          - name: product_name_snapshot
+            type: VARCHAR(255)
+          - name: product_category_snapshot
+            type: VARCHAR(100)
+          - name: product_brand_snapshot
+            type: VARCHAR(100)

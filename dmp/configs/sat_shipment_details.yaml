@@ -1,0 +1,20 @@
+table_name: sat_shipment_details
+table_type: satellite
+kafka_topic: logistics_service.public.shipments
+source_system: logistics_service
+parent_bk_field: shipment_external_id
+parent_bk_col: hub_shipment_bk
+attribute_fields:
+  - order_external_id
+  - tracking_number
+  - status
+  - weight_grams
+  - volume_cubic_cm
+  - package_count
+  - destination_type
+  - created_date
+  - dispatched_date
+  - estimated_delivery_date
+  - actual_delivery_date
+  - delivery_notes
+  - recipient_name

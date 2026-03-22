@@ -1,0 +1,7 @@
+table_name: lnk_order_user
+table_type: link
+kafka_topic: order_service.public.orders
+source_system: order_service
+hub_keys:
+  hub_order_bk: order_external_id
+  hub_user_bk: user_external_id

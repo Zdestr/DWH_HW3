@@ -1,0 +1,7 @@
+table_name: lnk_shipment_pickup_point
+table_type: link
+kafka_topic: logistics_service.public.shipments
+source_system: logistics_service
+hub_keys:
+  hub_shipment_bk: shipment_external_id
+  hub_pickup_point_bk: destination_pickup_point_code

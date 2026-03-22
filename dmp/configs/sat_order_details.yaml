@@ -1,0 +1,21 @@
+table_name: sat_order_details
+table_type: satellite
+kafka_topic: order_service.public.orders
+source_system: order_service
+parent_bk_field: order_external_id
+parent_bk_col: hub_order_bk
+attribute_fields:
+  - user_external_id
+  - order_number
+  - order_date
+  - status
+  - subtotal
+  - tax_amount
+  - shipping_cost
+  - discount_amount
+  - currency
+  - delivery_type
+  - expected_delivery_date
+  - actual_delivery_date
+  - payment_method
+  - payment_status

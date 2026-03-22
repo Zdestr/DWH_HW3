@@ -1,0 +1,5 @@
+table_name: hub_order
+table_type: hub
+kafka_topic: order_service.public.orders
+source_system: order_service
+business_key_field: order_external_id

@@ -1,0 +1,5 @@
+table_name: hub_warehouse
+table_type: hub
+kafka_topic: logistics_service.public.warehouses
+source_system: logistics_service
+business_key_field: warehouse_code

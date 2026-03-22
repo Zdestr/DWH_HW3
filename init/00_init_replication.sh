@@ -13,7 +13,7 @@ echo "host replication ${REPLICATION_USER} all md5" >> "$PGDATA/pg_hba.conf"
 
 cat >> "$PGDATA/postgresql.conf" <<EOF
 
-wal_level = replica
+wal_level = logical
 max_wal_senders = 10
 max_replication_slots = 10
 wal_keep_size = 256

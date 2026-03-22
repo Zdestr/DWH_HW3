@@ -1,0 +1,14 @@
+table_name: sat_user_details
+table_type: satellite
+kafka_topic: user_service.public.users
+source_system: user_service
+parent_bk_field: user_external_id
+parent_bk_col: hub_user_bk
+attribute_fields:
+  - email
+  - first_name
+  - last_name
+  - phone
+  - date_of_birth
+  - registration_date
+  - status

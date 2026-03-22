@@ -1,0 +1,17 @@
+table_name: sat_product_details
+table_type: satellite
+kafka_topic: order_service.public.products
+source_system: order_service
+parent_bk_field: product_sku
+parent_bk_col: hub_product_bk
+attribute_fields:
+  - product_name
+  - category
+  - brand
+  - price
+  - currency
+  - weight_grams
+  - dimensions_length_cm
+  - dimensions_width_cm
+  - dimensions_height_cm
+  - is_active

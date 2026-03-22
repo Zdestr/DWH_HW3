@@ -1,0 +1,7 @@
+table_name: lnk_user_address
+table_type: link
+kafka_topic: user_service.public.user_addresses
+source_system: user_service
+hub_keys:
+  hub_user_bk: user_external_id
+  hub_address_bk: address_external_id

@@ -1,0 +1,5 @@
+table_name: hub_user
+table_type: hub
+kafka_topic: user_service.public.users
+source_system: user_service
+business_key_field: user_external_id

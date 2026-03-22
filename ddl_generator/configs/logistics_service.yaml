@@ -1,0 +1,122 @@
+source_system: logistics_service
+
+entities:
+  - name: warehouses
+    hub:
+      name: hub_warehouse
+      business_key:
+        field: warehouse_code
+        type: VARCHAR(100)
+    satellites:
+      - name: sat_warehouse_details
+        fields:
+          - name: warehouse_name
+            type: VARCHAR(255)
+          - name: warehouse_type
+            type: VARCHAR(50)
+          - name: country
+            type: VARCHAR(100)
+          - name: region
+            type: VARCHAR(100)
+          - name: city
+            type: VARCHAR(100)
+          - name: street_address
+            type: VARCHAR(255)
+          - name: postal_code
+            type: VARCHAR(20)
+          - name: is_active
+            type: BOOLEAN
+          - name: max_capacity_cubic_meters
+            type: DECIMAL(18,2)
+          - name: operating_hours
+            type: VARCHAR(255)
+          - name: contact_phone
+            type: VARCHAR(50)
+          - name: manager_name
+            type: VARCHAR(255)
+
+  - name: pickup_points
+    hub:
+      name: hub_pickup_point
+      business_key:
+        field: pickup_point_code
+        type: VARCHAR(100)
+    satellites:
+      - name: sat_pickup_point_details
+        fields:
+          - name: pickup_point_name
+            type: VARCHAR(255)
+          - name: pickup_point_type
+            type: VARCHAR(50)
+          - name: country
+            type: VARCHAR(100)
+          - name: region
+            type: VARCHAR(100)
+          - name: city
+            type: VARCHAR(100)
+          - name: street_address
+            type: VARCHAR(255)
+          - name: postal_code
+            type: VARCHAR(20)
+          - name: is_active
+            type: BOOLEAN
+          - name: max_capacity_packages
+            type: INT
+          - name: operating_hours
+            type: VARCHAR(255)
+          - name: contact_phone
+            type: VARCHAR(50)
+          - name: partner_name
+            type: VARCHAR(255)
+
+  - name: shipments
+    hub:
+      name: hub_shipment
+      business_key:
+        field: shipment_external_id
+        type: VARCHAR(36)
+    satellites:
+      - name: sat_shipment_details
+        fields:
+          - name: order_external_id
+            type: VARCHAR(36)
+          - name: tracking_number
+            type: VARCHAR(100)
+          - name: status
+            type: VARCHAR(50)
+          - name: weight_grams
+            type: INT
+          - name: volume_cubic_cm
+            type: DECIMAL(18,2)
+          - name: package_count
+            type: INT
+          - name: destination_type
+            type: VARCHAR(50)
+          - name: created_date
+            type: DATE
+          - name: dispatched_date
+            type: DATE
+          - name: estimated_delivery_date
+            type: DATE
+          - name: actual_delivery_date
+            type: DATE
+          - name: delivery_notes
+            type: STRING
+          - name: recipient_name
+            type: VARCHAR(255)
+
+links:
+  - name: lnk_shipment_order
+    hubs:
+      - hub_shipment
+      - hub_order
+
+  - name: lnk_shipment_warehouse
+    hubs:
+      - hub_shipment
+      - hub_warehouse
+
+  - name: lnk_shipment_pickup_point
+    hubs:
+      - hub_shipment
+      - hub_pickup_point

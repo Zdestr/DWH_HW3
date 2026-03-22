@@ -1,0 +1,19 @@
+table_name: sat_warehouse_details
+table_type: satellite
+kafka_topic: logistics_service.public.warehouses
+source_system: logistics_service
+parent_bk_field: warehouse_code
+parent_bk_col: hub_warehouse_bk
+attribute_fields:
+  - warehouse_name
+  - warehouse_type
+  - country
+  - region
+  - city
+  - street_address
+  - postal_code
+  - is_active
+  - max_capacity_cubic_meters
+  - operating_hours
+  - contact_phone
+  - manager_name

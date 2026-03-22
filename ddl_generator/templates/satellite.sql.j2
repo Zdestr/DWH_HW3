@@ -1,0 +1,21 @@
+-- SATELLITE: {{ sat_name }} (parent: {{ parent_name }})
+CREATE TABLE IF NOT EXISTS {{ sat_name }} (
+    {{ sat_name }}_id    BIGINT          NOT NULL AUTO_INCREMENT COMMENT 'Surrogate key',
+    {{ parent_name }}_bk VARCHAR(255)    NOT NULL                COMMENT 'BK from parent {{ parent_name }}',
+{% for field in fields %}
+    {{ field.name }}     {{ field.type }},
+{% endfor %}
+    load_dts             DATETIME        NOT NULL                COMMENT 'Load timestamp',
+    load_end_dts         DATETIME                                COMMENT 'Load end timestamp (SCD2)',
+    is_current           TINYINT         NOT NULL DEFAULT 1      COMMENT 'SCD2 current flag (1=current)',
+    hash_diff            VARCHAR(64)     NOT NULL                COMMENT 'Hash of all attributes',
+    record_source        VARCHAR(255)    NOT NULL                COMMENT 'Source system',
+    created_at           DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created timestamp'
+)
+UNIQUE KEY({{ sat_name }}_id, {{ parent_name }}_bk)
+DISTRIBUTED BY HASH({{ parent_name }}_bk) BUCKETS 4
+PROPERTIES (
+    "replication_num" = "1",
+    "enable_unique_key_merge_on_write" = "true"
+);
+

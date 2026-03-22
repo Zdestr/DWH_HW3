@@ -1,0 +1,16 @@
+table_name: sat_user_address
+table_type: satellite
+kafka_topic: user_service.public.user_addresses
+source_system: user_service
+parent_bk_field: address_external_id
+parent_bk_col: hub_address_bk
+attribute_fields:
+  - user_external_id
+  - address_type
+  - country
+  - region
+  - city
+  - street_address
+  - postal_code
+  - apartment
+  - is_default

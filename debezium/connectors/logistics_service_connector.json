@@ -1,0 +1,27 @@
+{
+  "name": "logistics_service_connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "pg-master",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "logistics_service_db",
+    "database.server.name": "logistics_service",
+    "topic.prefix": "logistics_service",
+    "table.include.list": "public.warehouses,public.pickup_points,public.shipments,public.shipment_movements,public.shipment_status_history",
+    "plugin.name": "pgoutput",
+    "slot.name": "debezium_logistics_service",
+    "publication.name": "debezium_logistics_service_pub",
+    "snapshot.mode": "initial",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "transforms.unwrap.add.fields": "op,source.ts_ms"
+  }
+}

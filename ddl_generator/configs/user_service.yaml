@@ -1,0 +1,60 @@
+source_system: user_service
+
+entities:
+  - name: users
+    hub:
+      name: hub_user
+      business_key:
+        field: user_external_id
+        type: VARCHAR(36)
+    satellites:
+      - name: sat_user_details
+        fields:
+          - name: email
+            type: VARCHAR(255)
+          - name: first_name
+            type: VARCHAR(255)
+          - name: last_name
+            type: VARCHAR(255)
+          - name: phone
+            type: VARCHAR(50)
+          - name: date_of_birth
+            type: DATE
+          - name: registration_date
+            type: DATE
+          - name: status
+            type: VARCHAR(50)
+
+  - name: user_addresses
+    hub:
+      name: hub_address
+      business_key:
+        field: address_external_id
+        type: VARCHAR(36)
+    satellites:
+      - name: sat_user_address
+        fields:
+          - name: user_external_id
+            type: VARCHAR(36)
+          - name: address_type
+            type: VARCHAR(50)
+          - name: country
+            type: VARCHAR(100)
+          - name: region
+            type: VARCHAR(100)
+          - name: city
+            type: VARCHAR(100)
+          - name: street_address
+            type: VARCHAR(255)
+          - name: postal_code
+            type: VARCHAR(20)
+          - name: apartment
+            type: VARCHAR(50)
+          - name: is_default
+            type: BOOLEAN
+
+links:
+  - name: lnk_user_address
+    hubs:
+      - hub_user
+      - hub_address

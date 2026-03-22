@@ -1,0 +1,17 @@
+-- LINK: {{ link_name }}
+CREATE TABLE IF NOT EXISTS {{ link_name }} (
+    {{ link_name }}_id  BIGINT          NOT NULL AUTO_INCREMENT COMMENT 'Surrogate key',
+{% for hub in hubs %}
+    {{ hub }}_bk        VARCHAR(255)    NOT NULL                COMMENT 'BK from {{ hub }}',
+{% endfor %}
+    load_dts            DATETIME        NOT NULL                COMMENT 'Load timestamp',
+    record_source       VARCHAR(255)    NOT NULL                COMMENT 'Source system',
+    created_at          DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created timestamp'
+)
+UNIQUE KEY({{ link_name }}_id, {{ hubs[0] }}_bk)
+DISTRIBUTED BY HASH({{ hubs[0] }}_bk) BUCKETS 4
+PROPERTIES (
+    "replication_num" = "1",
+    "enable_unique_key_merge_on_write" = "true"
+);
+

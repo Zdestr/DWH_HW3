@@ -1,0 +1,19 @@
+table_name: sat_pickup_point_details
+table_type: satellite
+kafka_topic: logistics_service.public.pickup_points
+source_system: logistics_service
+parent_bk_field: pickup_point_code
+parent_bk_col: hub_pickup_point_bk
+attribute_fields:
+  - pickup_point_name
+  - pickup_point_type
+  - country
+  - region
+  - city
+  - street_address
+  - postal_code
+  - is_active
+  - max_capacity_packages
+  - operating_hours
+  - contact_phone
+  - partner_name

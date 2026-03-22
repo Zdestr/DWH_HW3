@@ -1,0 +1,5 @@
+table_name: hub_shipment
+table_type: hub
+kafka_topic: logistics_service.public.shipments
+source_system: logistics_service
+business_key_field: shipment_external_id

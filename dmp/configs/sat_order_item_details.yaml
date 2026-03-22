@@ -1,0 +1,14 @@
+table_name: sat_order_item_details
+table_type: satellite
+kafka_topic: order_service.public.order_items
+source_system: order_service
+parent_bk_field: order_external_id
+parent_bk_col: hub_order_bk
+attribute_fields:
+  - product_sku
+  - quantity
+  - unit_price
+  - total_price
+  - product_name_snapshot
+  - product_category_snapshot
+  - product_brand_snapshot

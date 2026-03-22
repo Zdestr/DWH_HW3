@@ -1,0 +1,5 @@
+table_name: hub_pickup_point
+table_type: hub
+kafka_topic: logistics_service.public.pickup_points
+source_system: logistics_service
+business_key_field: pickup_point_code
