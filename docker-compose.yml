@@ -214,8 +214,7 @@ services:
       timeout: 10s
       retries: 20
     networks:
-      dwh-network:
-        ipv4_address: 172.23.0.11
+      - dwh-network
 
   doris-init:
     image: mysql:8.0
