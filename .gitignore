@@ -32,12 +32,3 @@ Thumbs.db
 *.zip
 *.gz
 *.dump
-
-# Temporary documentation files (created during debugging/setup)
-# These are helper files for troubleshooting Docker setup on macOS
-DOCKER_FIX.md
-STARTUP_STATUS.md
-VALIDATION_REPORT.md
-FINAL_STATUS.md
-WORKING_SOLUTION.md
-HOMEWORK_SUBMISSION.md
