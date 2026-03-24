@@ -1,21 +1,43 @@
+# PostgreSQL data directories
 pgdata_master/
 pgdata_replica/
 
+# Environment files (keep .env template)
 .env.local
 
+# Python
 __pycache__/
 *.pyc
 *.pyo
 .venv/
 venv/
+*.egg-info/
 
+# OS files
 .DS_Store
 Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
+# IDE
 .idea/
 .vscode/
+*.swp
+*.swo
 
+# Archives
 *.tar
 *.zip
 *.gz
 *.dump
+
+# Temporary documentation files (created during debugging/setup)
+# These are helper files for troubleshooting Docker setup on macOS
+DOCKER_FIX.md
+STARTUP_STATUS.md
+VALIDATION_REPORT.md
+FINAL_STATUS.md
+WORKING_SOLUTION.md
+HOMEWORK_SUBMISSION.md

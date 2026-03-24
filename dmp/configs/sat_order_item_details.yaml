@@ -3,7 +3,7 @@ table_type: satellite
 kafka_topic: order_service.public.order_items
 source_system: order_service
 parent_bk_field: order_external_id
-parent_bk_col: hub_order_bk
+parent_bk_col: lnk_order_product_bk
 attribute_fields:
   - product_sku
   - quantity
