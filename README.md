@@ -360,13 +360,6 @@ JOIN dwh_detailed.hub_warehouse hw
 | sat_order_item_details | lnk_order_product | ✅ |
 | sat_pickup_point_details | hub_pickup_point | ✅ |
 
-## Сдача ДЗ
-
-1. **Видео-демонстрация:** Запись дашбордов Metabase с работающими визуализациями
-2. **GitHub:** Приватный репозиторий с доступом для @mgcrp
-3. **README.md:** Полная инструкция по запуску и использованию
-4. **Форма:** https://forms.gle/Y624DDetfNY7WcpA6
-
 ## Источники
 - [Data Vault 2.0 Methodology](https://datavaultalliance.com/)
 - [Apache Airflow Documentation](https://airflow.apache.org/docs/)
